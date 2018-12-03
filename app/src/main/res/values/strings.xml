@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">WeatherSmash</string>
+    <string name="fragment_name1">home1</string>
+    <string name="fragment_name2">home2</string>
+    <string name="fragment_name3">home3</string>
+    <string name="weatherOfToday">오늘의 날씨</string>
+</resources>

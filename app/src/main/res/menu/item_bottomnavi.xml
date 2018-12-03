@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item
+        android:id="@+id/fragmentItem1"
+        android:title="@string/fragment_name1"
+        android:icon="@drawable/img_sun"></item>
+
+    <item
+        android:id="@+id/fragmentItem2"
+        android:title="@string/fragment_name2"
+        android:icon="@drawable/img_moon"></item>
+
+    <item
+        android:id="@+id/fragmentItem3"
+        android:title="@string/fragment_name3"
+        android:icon="@drawable/img_star"></item>
+
+</menu>
