@@ -26,19 +26,10 @@
             android:gravity="center"/>
     </RelativeLayout>
 
-    <android.support.v4.view.ViewPager
-        android:id="@+id/mainFragmentScreen"
+    <FrameLayout
+        android:id="@+id/fragmentPage"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginTop="?android:actionBarSize"
-        android:layout_marginBottom="?android:actionBarSize"></android.support.v4.view.ViewPager>
-
-    <android.support.design.widget.BottomNavigationView
-        android:id="@+id/mainBottomNavi"
-        android:layout_width="match_parent"
-        android:layout_height="?android:actionBarSize"
-        android:layout_alignParentBottom="true"
-        android:background="@color/colorOfYear"
-        app:menu="@menu/item_bottomnavi"></android.support.design.widget.BottomNavigationView>
+        android:layout_marginTop="?android:actionBarSize"></FrameLayout>
 
 </RelativeLayout>

@@ -5,13 +5,14 @@ import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 
+//스플래쉬 화면
 public class SplashActivity extends AppCompatActivity {
-    //스플래쉬 화면
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_splash);
 
+        //스레드를 사용한 2초 후 화면 재생
         MakeThread();
 
 

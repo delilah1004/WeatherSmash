@@ -3,16 +3,19 @@
     <group>
         <item
             android:id="@+id/drawerItem1"
-            android:title="1번 아이템"></item>
+            android:title="홈1"></item>
         <item
             android:id="@+id/drawerItem2"
-            android:title="1번 아이템"></item>
+            android:title="홈2"></item>
         <item
             android:id="@+id/drawerItem3"
-            android:title="1번 아이템"></item>
+            android:title="홈3"></item>
         <item
             android:id="@+id/drawerItem4"
-            android:title="1번 아이템"></item>
+            android:title="마이페이지"></item>
+        <item
+            android:id="@+id/drawerItem5"
+            android:title="설정"></item>
     </group>
 
 </menu>

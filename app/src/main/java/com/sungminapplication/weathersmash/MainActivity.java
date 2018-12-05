@@ -5,6 +5,8 @@ import android.support.annotation.NonNull;
 import android.support.annotation.RequiresApi;
 import android.support.design.widget.BottomNavigationView;
 import android.support.design.widget.NavigationView;
+import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentTransaction;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.view.ViewPager;
 import android.os.Bundle;
@@ -19,8 +21,6 @@ import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
 
-    BottomNavigationView bnv;
-    ViewPager fragmentScreen;
     Toolbar toolbar;
     DrawerLayout burgerItem;
     NavigationView navi;
@@ -29,16 +29,13 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.drawer_main);
-        fragmentScreen = (ViewPager) findViewById(R.id.mainFragmentScreen);
-        bnv = (BottomNavigationView) findViewById(R.id.mainBottomNavi);
         toolbar = (Toolbar) findViewById(R.id.mainToolbar);
         burgerItem = findViewById(R.id.toolbarDrawer);
         navi= findViewById(R.id.drawerNavi);
         toolbar.setTitle("");
-        ViewpagerSetting();
-        BottomNaviSetting();
         DrawerNaviSetting();
         LogoutButton();
+        FragmentControl(HomeFirstFragment.getInstance());
     }
 
     public void DrawerNaviSetting(){
@@ -99,7 +96,7 @@ public class MainActivity extends AppCompatActivity {
                 break;
 
             case R.id.searchh_icon:
-                Toast.makeText(getApplicationContext(), "김현구 바보", Toast.LENGTH_SHORT).show();
+                Toast.makeText(getApplicationContext(), "수정 필요", Toast.LENGTH_SHORT).show();
                 break;
 
             case R.id.etcItem1:
@@ -117,49 +114,12 @@ public class MainActivity extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
 
-    public void ViewpagerSetting(){
-        fragmentScreen.setAdapter(new ViewpagerAdopter(getSupportFragmentManager()));
-        fragmentScreen.setCurrentItem(0);
-
-        fragmentScreen.setOffscreenPageLimit(3);
-
-        fragmentScreen.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
-            @Override
-            public void onPageScrolled(int i, float v, int i1) {
-                bnv.getMenu().getItem(i).setChecked(true);
-            }
-
-            @Override
-            public void onPageSelected(int i) {
-
-            }
-
-            @Override
-            public void onPageScrollStateChanged(int i) {
-
-            }
-        });
+    public void FragmentControl(Fragment fragment){
+        FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
+        transaction
+                .addToBackStack(null)
+                .add(R.id.fragmentPage, fragment)
+                .commit();
     }
 
-    public void BottomNaviSetting(){
-        bnv.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
-            @Override
-            public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
-                switch (menuItem.getItemId()){
-                    case R.id.fragmentItem1:
-                        fragmentScreen.setCurrentItem(0);
-                        break;
-
-                    case R.id.fragmentItem2:
-                        fragmentScreen.setCurrentItem(1);
-                        break;
-
-                    case R.id.fragmentItem3:
-                        fragmentScreen.setCurrentItem(2);
-                        break;
-                }
-                return false;
-            }
-        });
-    }
 }

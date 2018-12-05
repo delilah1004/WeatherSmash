@@ -9,7 +9,11 @@ import android.view.View;
 import android.view.ViewGroup;
 
 public class HomeFirstFragment extends Fragment {
-    public HomeFirstFragment(){}
+
+    public static HomeFirstFragment homeFirstFragment = new HomeFirstFragment();
+    public static HomeFirstFragment getInstance(){
+        return homeFirstFragment;
+    }
 
     @Nullable
     @Override
