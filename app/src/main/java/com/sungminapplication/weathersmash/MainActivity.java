@@ -19,6 +19,8 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
 
+import com.sungminapplication.weathersmash.Commuication.NetworkService;
+
 public class MainActivity extends AppCompatActivity {
 
     Toolbar toolbar;
@@ -33,10 +35,11 @@ public class MainActivity extends AppCompatActivity {
         burgerItem = findViewById(R.id.toolbarDrawer);
         navi= findViewById(R.id.drawerNavi);
         toolbar.setTitle("");
-        DrawerNaviSetting();
         LogoutButton();
         FragmentControl(HomeFirstFragment.getInstance());
+        DrawerNaviSetting();
     }
+
 
     public void DrawerNaviSetting(){
         setSupportActionBar(toolbar);
@@ -49,11 +52,11 @@ public class MainActivity extends AppCompatActivity {
                 burgerItem.closeDrawers();
                 switch (menuItem.getItemId()){
                     case R.id.drawerItem1:
-                        Toast.makeText(getApplicationContext(), "item1", Toast.LENGTH_SHORT).show();
+                        FragmentControl(HomeFirstFragment.getInstance());
                         return true;
 
                     case R.id.drawerItem2:
-                        Toast.makeText(getApplicationContext(), "item2", Toast.LENGTH_SHORT).show();
+                        FragmentControl(HomeSecondFragment.getInstance());
                         return true;
 
                     case R.id.drawerItem3:
@@ -118,8 +121,12 @@ public class MainActivity extends AppCompatActivity {
         FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
         transaction
                 .addToBackStack(null)
-                .add(R.id.fragmentPage, fragment)
+                .replace(R.id.fragmentPage, fragment)
                 .commit();
     }
 
+    @Override
+    public void onBackPressed() {
+
+    }
 }

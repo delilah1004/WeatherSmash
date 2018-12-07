@@ -3,13 +3,13 @@
     <group>
         <item
             android:id="@+id/drawerItem1"
-            android:title="홈1"></item>
+            android:title="여기 날씨!"></item>
         <item
             android:id="@+id/drawerItem2"
-            android:title="홈2"></item>
+            android:title="여기 날씨! vs 저기 날씨!"></item>
         <item
             android:id="@+id/drawerItem3"
-            android:title="홈3"></item>
+            android:title="저기 날씨!"></item>
         <item
             android:id="@+id/drawerItem4"
             android:title="마이페이지"></item>
